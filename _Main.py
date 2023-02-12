@@ -136,7 +136,7 @@ def pera():
         pero = find_parm(D.get())
         lbl3 = ttk.Label(text= pero).grid(column=0, row= 3)
     btn = ttk.Button(text= "Potvrdit", command=confirm_D, width=15).grid(column=2, row=2)
-    btn2 = ttk.Button(text="Zpět", command=mainMenu, width=15).grid(column=2, row=0)
+    btn2 = ttk.Button(text= "Zpět", command=mainMenu, width=15).grid(column=2, row=0)
 
 
 def kv():
@@ -225,7 +225,7 @@ def kv():
             lbl3 = ttk.Label(text= answer).place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
-    
+
 
     def rectangle_UI():
         cls()
@@ -318,7 +318,6 @@ def kv():
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
 
-    
     def circle_UI():
         cls()
         ttk.Label(text=fncsstr[8]).grid(row=0, column=1)
@@ -440,7 +439,7 @@ def kv():
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
-    
+
     def I_UI():
         cls()
         ttk.Label(text=fncsstr[13]).grid(row=0, column=1)
@@ -566,25 +565,25 @@ def nosniky():
         btn2 = ttk.Button(text="Zpět", command=nosniky, width=15).grid(column=2, row=0)
 
 
-    def setinp(value):
+    def setcase(value):
         global inp
         inp = value
         UI(inp)
 
-    btn = ttk.Button(text="1",  command=lambda *args: setinp(1),  width=15).grid(column=0, row=1 )
-    btn = ttk.Button(text="2",  command=lambda *args: setinp(2),  width=15).grid(column=0, row=2 )
-    btn = ttk.Button(text="3",  command=lambda *args: setinp(3),  width=15).grid(column=0, row=3 )
-    btn = ttk.Button(text="4",  command=lambda *args: setinp(4),  width=15).grid(column=0, row=4 )
-    btn = ttk.Button(text="5",  command=lambda *args: setinp(5),  width=15).grid(column=0, row=5 )
-    btn = ttk.Button(text="6",  command=lambda *args: setinp(6),  width=15).grid(column=0, row=6 )
-    btn = ttk.Button(text="7",  command=lambda *args: setinp(7),  width=15).grid(column=0, row=7 )
-    btn = ttk.Button(text="8",  command=lambda *args: setinp(8),  width=15).grid(column=0, row=8 )
-    btn = ttk.Button(text="9",  command=lambda *args: setinp(9),  width=15).grid(column=0, row=9 )
-    btn = ttk.Button(text="10", command=lambda *args: setinp(10), width=15).grid(column=0, row=10)
-    btn = ttk.Button(text="11", command=lambda *args: setinp(11), width=15).grid(column=0, row=11)
-    btn = ttk.Button(text="12", command=lambda *args: setinp(12), width=15).grid(column=0, row=12)
-    btn = ttk.Button(text="13", command=lambda *args: setinp(13), width=15).grid(column=0, row=13)
-    btn = ttk.Button(text="14", command=lambda *args: setinp(14), width=15).grid(column=0, row=14)
+    btn = ttk.Button(text="1",  command=lambda *args: setcase(1),  width=15).grid(column=0, row=1 )
+    btn = ttk.Button(text="2",  command=lambda *args: setcase(2),  width=15).grid(column=0, row=2 )
+    btn = ttk.Button(text="3",  command=lambda *args: setcase(3),  width=15).grid(column=0, row=3 )
+    btn = ttk.Button(text="4",  command=lambda *args: setcase(4),  width=15).grid(column=0, row=4 )
+    btn = ttk.Button(text="5",  command=lambda *args: setcase(5),  width=15).grid(column=0, row=5 )
+    btn = ttk.Button(text="6",  command=lambda *args: setcase(6),  width=15).grid(column=0, row=6 )
+    btn = ttk.Button(text="7",  command=lambda *args: setcase(7),  width=15).grid(column=0, row=7 )
+    btn = ttk.Button(text="8",  command=lambda *args: setcase(8),  width=15).grid(column=0, row=8 )
+    btn = ttk.Button(text="9",  command=lambda *args: setcase(9),  width=15).grid(column=0, row=9 )
+    btn = ttk.Button(text="10", command=lambda *args: setcase(10), width=15).grid(column=0, row=10)
+    btn = ttk.Button(text="11", command=lambda *args: setcase(11), width=15).grid(column=0, row=11)
+    btn = ttk.Button(text="12", command=lambda *args: setcase(12), width=15).grid(column=0, row=12)
+    btn = ttk.Button(text="13", command=lambda *args: setcase(13), width=15).grid(column=0, row=13)
+    btn = ttk.Button(text="14", command=lambda *args: setcase(14), width=15).grid(column=0, row=14)
     btn2 = ttk.Button(text="Zpět", command=mainMenu, width=15).grid(column=2, row=0)
 
 
