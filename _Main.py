@@ -544,7 +544,7 @@ def nosniky():
         img = ImageTk.PhotoImage(Image.open(cases[inp][2]))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=260, y=0)
+        image.place(x=300, y=0)
         x = 2
         for i in cases[inp][0]:
             ttk.Label(text= i).grid(row=x, column=0)
@@ -560,7 +560,7 @@ def nosniky():
             UI(inp)
             nos = nosnik(inp, F = F.get(), l = l.get(), E = E.get(), J = J.get(), q = q.get(), Q = Q.get(), M= M.get(), Ma = Ma.get(), Mb = Mb.get(), a = a.get(), b = b.get(), c = c.get())
             output = nosnik.vypocet(nos)
-            lbl3 = ttk.Label(text= output).place(y=160, x=0)
+            lbl3 = ttk.Label(text= output).place(y=50, x=150)
         btn = ttk.Button(text= "Potvrdit", command=confirm, width=15).grid(column=2, row=2)
         btn2 = ttk.Button(text="Zpět", command=nosniky, width=15).grid(column=2, row=0)
 
