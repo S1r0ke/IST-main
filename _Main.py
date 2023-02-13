@@ -138,6 +138,14 @@ def pera():
     btn = ttk.Button(text= "Potvrdit", command=confirm_D, width=15).grid(column=2, row=2)
     btn2 = ttk.Button(text= "Zpět", command=mainMenu, width=15).grid(column=2, row=0)
 
+j = float()
+
+
+def setj(value):
+    global j
+    j = value
+    print (j)
+
 
 def kv():
     cls()
@@ -147,26 +155,28 @@ def kv():
 
     def square_UI():
         cls()
-        ttk.Label(text=fncsstr[0]).grid(row=0, column=1)
+        ttk.Label(text=fncsstr[0] + "[mm]").grid(row=0, column=1)
         a = tk.DoubleVar()
         ttk.Label(text= "a: ").grid(row=1, column=0)
         ttk.Entry(root, textvariable= a).grid(row=1, column=1)
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv1.jpg"))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=220, y=0)
+        image.place(x=240, y=0)
         def confirm():
             square_UI()
             print("confirm")
             answer = square(a.get())
-            lbl3 = ttk.Label(text= answer).place(x=15, y=55)
+            setj(answer[0])
+            lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=15, y=55)
+        ttk.Button(text= "Uložit pro výpočet nosníku", command=lambda *args: setj())
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
 
     def hollow_square_UI():
         cls()
-        ttk.Label(text=fncsstr[1]).grid(row=0, column=1)
+        ttk.Label(text=fncsstr[1] + "[mm]").grid(row=0, column=1)
         H = tk.DoubleVar()
         h = tk.DoubleVar()
         ttk.Label(text= "H: ").grid(row=1, column=0)
@@ -176,38 +186,40 @@ def kv():
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv2.jpg"))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=220, y=0)
+        image.place(x=240, y=0)
         def confirm():
             hollow_square_UI()
             print("confirm")
             answer = hollow_square(H.get(), h.get())
-            lbl3 = ttk.Label(text= answer).place(x=20, y=75)
+            setj(answer[0])
+            lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)    
 
 
     def rotated_square_UI():
         cls()
-        ttk.Label(text=fncsstr[2]).grid(row=0, column=1)
+        ttk.Label(text=fncsstr[2] + "[mm]").grid(row=0, column=1)
         a = tk.DoubleVar()
         ttk.Label(text= "a: ").grid(row=1, column=0)
         ttk.Entry(root, textvariable= a).grid(row=1, column=1)
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv3.jpg"))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=220, y=0)
+        image.place(x=240, y=0)
         def confirm():
             rotated_square_UI()
             print("confirm")
             answer = rotated_square(a.get())
-            lbl3 = ttk.Label(text= answer).place(x=20, y=75)
+            setj(answer[0])
+            lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
 
     def rotated_hollow_square_UI():
         cls()
-        ttk.Label(text=fncsstr[3]).grid(row=0, column=1)
+        ttk.Label(text=fncsstr[3] + "[mm]").grid(row=0, column=1)
         H = tk.DoubleVar()
         h = tk.DoubleVar()
         ttk.Label(text= "H: ").grid(row=1, column=0)
@@ -217,19 +229,20 @@ def kv():
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv4.jpg"))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=230, y=0)
+        image.place(x=240, y=0)
         def confirm():
             rotated_hollow_square_UI()
             print("confirm")
             answer = rotated_hollow_square(H.get(),h.get())
-            lbl3 = ttk.Label(text= answer).place(x=20, y=75)
+            setj(answer[0])
+            lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
 
     def rectangle_UI():
         cls()
-        ttk.Label(text=fncsstr[4]).grid(row=0, column=1)
+        ttk.Label(text=fncsstr[4] + "[mm]").grid(row=0, column=1)
         b = tk.DoubleVar()
         h = tk.DoubleVar()
         ttk.Label(text= "b: ").grid(row=1, column=0)
@@ -239,19 +252,20 @@ def kv():
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv5.jpg"))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=220, y=0)
+        image.place(x=240, y=0)
         def confirm():
             rectangle_UI()
             print("confirm")
             answer = rectangle(b.get(),h.get())
-            lbl3 = ttk.Label(text= answer).place(x=20, y=75)
+            setj(answer[0])
+            lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
 
     def triangle_UI():
         cls()
-        ttk.Label(text=fncsstr[5]).grid(row=0, column=1)
+        ttk.Label(text=fncsstr[5] + "[mm]").grid(row=0, column=1)
         b = tk.DoubleVar()
         h = tk.DoubleVar()
         ttk.Label(text= "b: ").grid(row=1, column=0)
@@ -261,19 +275,20 @@ def kv():
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv6.jpg"))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=220, y=0)
+        image.place(x=240, y=0)
         def confirm():
             triangle_UI()
             print("confirm")
             answer = triangle(b.get(),h.get())
-            lbl3 = ttk.Label(text= answer).place(x=20, y=75)
+            setj(answer[0])
+            lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
 
     def hex_UI():
         cls()
-        ttk.Label(text=fncsstr[6]).grid(row=0, column=1)
+        ttk.Label(text=fncsstr[6] + "[mm]").grid(row=0, column=1)
         e = tk.DoubleVar()
         s = tk.DoubleVar()
         ttk.Label(text= "e: ").grid(row=1, column=0)
@@ -283,19 +298,20 @@ def kv():
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv7.jpg"))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=220, y=0)
+        image.place(x=240, y=0)
         def confirm():
             hex_UI()
             print("confirm")
             answer = hex(e.get(),s.get())
-            lbl3 = ttk.Label(text= answer).place(x=20, y=75)
+            setj(answer[0])
+            lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
 
     def trapezoid_UI():
         cls()
-        ttk.Label(text=fncsstr[7]).grid(row=0, column=1)
+        ttk.Label(text=fncsstr[7] + "[mm]").grid(row=0, column=1)
         b = tk.DoubleVar()
         b1 = tk.DoubleVar()
         h = tk.DoubleVar()
@@ -308,38 +324,40 @@ def kv():
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv8.jpg"))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=220, y=0)
+        image.place(x=240, y=0)
         def confirm():
             trapezoid_UI()
             print("confirm")
             answer = trapezoid(b.get(),b1.get(),h.get())
-            lbl3 = ttk.Label(text= answer).place(x=20, y=75)
+            setj(answer[0])
+            lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
 
     def circle_UI():
         cls()
-        ttk.Label(text=fncsstr[8]).grid(row=0, column=1)
+        ttk.Label(text=fncsstr[8] + "[mm]").grid(row=0, column=1)
         d = tk.DoubleVar()
         ttk.Label(text= "d: ").grid(row=1, column=0)
         ttk.Entry(root, textvariable= d).grid(row=1, column=1)
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv9.jpg"))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=220, y=0)
+        image.place(x=240, y=0)
         def confirm():
             circle_UI()
             print("confirm")
             answer = circle(d.get())
-            lbl3 = ttk.Label(text= answer).place(x=20, y=75)
+            setj(answer[0])
+            lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
 
     def hollow_circle_UI():
         cls()
-        ttk.Label(text=fncsstr[9]).grid(row=0, column=1)
+        ttk.Label(text=fncsstr[9] + "[mm]").grid(row=0, column=1)
         d = tk.DoubleVar()
         ttk.Label(text= "d: ").grid(row=2, column=0)
         ttk.Entry(root, textvariable= d).grid(row=2, column=1)
@@ -349,19 +367,20 @@ def kv():
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv10.jpg"))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=220, y=0)
+        image.place(x=240, y=0)
         def confirm():
             hollow_circle_UI()
             print("confirm")
             answer = hollow_circle(D.get(), d.get())
-            lbl3 = ttk.Label(text= answer).place(x=20, y=75)
+            setj(answer[0])
+            lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
 
     def elipse_UI():
         cls()
-        ttk.Label(text=fncsstr[10]).grid(row=0, column=1)
+        ttk.Label(text=fncsstr[10] + "[mm]").grid(row=0, column=1)
         b = tk.DoubleVar()
         ttk.Label(text= "b: ").grid(row=1, column=0)
         ttk.Entry(root, textvariable= b).grid(row=1, column=1)
@@ -371,19 +390,20 @@ def kv():
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv11.jpg"))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=220, y=0)
+        image.place(x=240, y=0)
         def confirm():
             elipse_UI()
             print("confirm")
             answer = elipse(b.get(), h.get())
-            lbl3 = ttk.Label(text= answer).place(x=20, y=75)
+            setj(answer[0])
+            lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
 
     def TUL_UI():
         cls()
-        ttk.Label(text=fncsstr[11]).grid(row=0, column=1)
+        ttk.Label(text=fncsstr[11] + "[mm]").grid(row=0, column=1)
         a = tk.DoubleVar()
         ttk.Label(text= "a: ").grid(row=1, column=0)
         ttk.Entry(root, textvariable= a).grid(row=1, column=1)
@@ -402,19 +422,20 @@ def kv():
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv12.jpg"))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=220, y=0)
+        image.place(x=240, y=0)
         def confirm():
             TUL_UI()
             print("confirm")
             answer = TUL(a.get(), H.get(), t.get(), B.get(), h.get())
-            lbl3 = ttk.Label(text= answer).place(x=20, y=140)
+            setj(answer[0])
+            lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=140)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
 
     def H_UI():
         cls()
-        ttk.Label(text=fncsstr[12]).grid(row=0, column=1)
+        ttk.Label(text=fncsstr[12] + "[mm]").grid(row=0, column=1)
         H = tk.DoubleVar()
         ttk.Label(text= "H: ").grid(row=2, column=0)
         ttk.Entry(root, textvariable= H).grid(row=2, column=1)
@@ -430,19 +451,20 @@ def kv():
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv13.jpg"))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=220, y=0)
+        image.place(x=240, y=0)
         def confirm():
             H_UI()
             print("confirm")
             answer = H_profile(B.get(), b.get(), H.get(), h.get())
-            lbl3 = ttk.Label(text= answer).place(x=20, y=140)
+            setj(answer[0])
+            lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=140)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
 
     def I_UI():
         cls()
-        ttk.Label(text=fncsstr[13]).grid(row=0, column=1)
+        ttk.Label(text=fncsstr[13] + "[mm]").grid(row=0, column=1)
         H = tk.DoubleVar()
         ttk.Label(text= "H: ").grid(row=2, column=0)
         ttk.Entry(root, textvariable= H).grid(row=2, column=1)
@@ -458,12 +480,13 @@ def kv():
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv14.jpg"))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=220, y=0)
+        image.place(x=240, y=0)
         def confirm():
             I_UI()
             print("confirm")
             answer = I_profile(B.get(), b.get(), H.get(), h.get())
-            lbl3 = ttk.Label(text= answer).place(x=20, y=140)
+            setj(answer[0])
+            lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=140)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
         ttk.Button(text= "Zpět", command= kv, width=10).grid(column=8, row=0)
 
@@ -525,44 +548,56 @@ def nosniky():
         b  =  tk.DoubleVar()
         c  =  tk.DoubleVar()
         cases = {
-            1    : [["F: ", "l: ", "E: ", "J: "],                       [F, l, E, J]            , f"imgs/Nosnik1.jpg"  , "Vetknutý nosík s jednotou silou na konci"                                      ],
-            2    : [["F: ", "l: ", "E: ", "J: "],                       [F, l, E, J]            , f"imgs/Nosnik2.jpg"  , "Vetknutý nosík s jednotou silou na uprostřed"                                  ],
-            3    : [["q: ", "Q: ", "l: ", "E: ", "J: "],                [q, Q, l, E, J]         , f"imgs/Nosnik3.jpg"  , "Vetknutý nosík se konstantním spojitým zatížením"                              ],
-            4    : [["M: ", "l: ", "E: ", "J: "],                       [M, l, E, J]            , f"imgs/Nosnik4.jpg"  , "Vetknutý nosík zatížený ohybovým momentem"                                     ],
-            5    : [["q: ", "l: ", "E: ", "J: "],                       [q, l, E, J]            , f"imgs/Nosnik5.jpg"  , "Vetknutý nosík se lineárním spojitým zatížením"                                ],
-            6    : [["F: ", "l: ", "E: ", "J: "],                       [F, l, E, J]            , f"imgs/Nosnik6.jpg"  , "Nosník na dvou podporách se silou uprostřed"                                   ],
-            7    : [["F: ", "a: ", "b: ", "c ", "l: ", "E: ", "J: "],   [F, a, b, c,  l, E, J]  , f"imgs/Nosnik7.jpg"  , "Nosník na dvou podporách se silou obecně"                                      ],
-            8    : [["F: ", "a: ", "l: ", "E: ", "J: "],                [F, a, l, E, J]         , f"imgs/Nosnik8.jpg"  , "Nosník na dvou podporách se silou na převislém konci"                          ],
-            9    : [["F: ", "a: ", "l: ", "E: ", "J: "],                [F, a, l, E, J]         , f"imgs/Nosnik9.jpg"  , "Nosník na dvou podporách se dvěma zatěžujícími silami"                         ],
-            10   : [["F: ", "a: ", "l: ", "E: ", "J: "],                [F, a, l, E, J]         , f"imgs/Nosnik10.jpg" , "Nosník na dvou podporách se dvěma zatěžujícími silami na převislých koncích"   ],
-            11   : [["q: ", "Q: ", "l: ", "E: ", "J: "],                [q, Q, l, E, J]         , f"imgs/Nosnik11.jpg" , "Nosník na dvou podporách s konstantním spojitým zatížením"                     ],
-            12   : [["q: ", "l: ", "E: ", "J: "],                       [q, l, E, J]            , f"imgs/Nosnik12.jpg" , "Nosník na dvou podporách s lineárním spojitým zatížením"                       ],
-            13   : [["q: ", "a: ", "l: ", "E: ", "J: "],                [q, a, l, E, J]         , f"imgs/Nosnik13.jpg" , "Nosník na dvou podporách s převislími koncemi a spojitým zatížením"            ],
-            14   : [["Ma: ","Mb: ", "l: ", "E: ", "J: "],               [Ma, Mb, l, E, J]       , f"imgs/Nosnik14.jpg" , "Nosník na dvou podporách zatížený dvěma ohybovými momenty"                     ],
+            1    : [["F: ", "l: ", "E: ", "J: "],                       [F, l, E, J]            , ["N"  , "mm", "MPa", "mm4"                    ], f"imgs/Nosnik1.jpg"  , "Vetknutý nosík s jednotou silou na konci"                                      ],
+            2    : [["F: ", "l: ", "E: ", "J: "],                       [F, l, E, J]            , ["N"  , "mm", "MPa", "mm4"                    ], f"imgs/Nosnik2.jpg"  , "Vetknutý nosík s jednotou silou na uprostřed"                                  ],
+            3    : [["q: ", "Q: ", "l: ", "E: ", "J: "],                [q, Q, l, E, J]         , ["N/m", "N" , "mm" , "MPa", "mm4"             ], f"imgs/Nosnik3.jpg"  , "Vetknutý nosík se konstantním spojitým zatížením"                              ],
+            4    : [["M: ", "l: ", "E: ", "J: "],                       [M, l, E, J]            , ["Nm" , "mm", "MPa", "mm4"                    ], f"imgs/Nosnik4.jpg"  , "Vetknutý nosík zatížený ohybovým momentem"                                     ],
+            5    : [["q: ", "l: ", "E: ", "J: "],                       [q, l, E, J]            , ["N/m", "mm", "MPa", "mm4"                    ], f"imgs/Nosnik5.jpg"  , "Vetknutý nosík se lineárním spojitým zatížením"                                ],
+            6    : [["F: ", "l: ", "E: ", "J: "],                       [F, l, E, J]            , ["N"  , "mm", "MPa", "mm4"                    ], f"imgs/Nosnik6.jpg"  , "Nosník na dvou podporách se silou uprostřed"                                   ],
+            7    : [["F: ", "a: ", "b: ", "c: ", "l: ", "E: ", "J: "],  [F, a, b, c,  l, E, J]  , ["N"  , "mm", "mm" , "mm" , "mm", "MPa", "mm4"], f"imgs/Nosnik7.jpg"  , "Nosník na dvou podporách se silou obecně"                                      ],
+            8    : [["F: ", "a: ", "l: ", "E: ", "J: "],                [F, a, l, E, J]         , ["N"  , "mm", "mm" , "MPa", "mm4"             ], f"imgs/Nosnik8.jpg"  , "Nosník na dvou podporách se silou na převislém konci"                          ],
+            9    : [["F: ", "a: ", "l: ", "E: ", "J: "],                [F, a, l, E, J]         , ["N"  , "mm", "mm" , "MPa", "mm4"             ], f"imgs/Nosnik9.jpg"  , "Nosník na dvou podporách se dvěma zatěžujícími silami"                         ],
+            10   : [["F: ", "a: ", "l: ", "E: ", "J: "],                [F, a, l, E, J]         , ["N"  , "mm", "mm" , "MPa", "mm4"             ], f"imgs/Nosnik10.jpg" , "Nosník na dvou podporách se dvěma zatěžujícími silami na převislých koncích"   ],
+            11   : [["q: ", "Q: ", "l: ", "E: ", "J: "],                [q, Q, l, E, J]         , ["N/m", "N" , "mm" , "MPa", "mm4"             ], f"imgs/Nosnik11.jpg" , "Nosník na dvou podporách s konstantním spojitým zatížením"                     ],
+            12   : [["q: ", "l: ", "E: ", "J: "],                       [q, l, E, J]            , ["N/m", "mm", "MPa", "mm4"                    ], f"imgs/Nosnik12.jpg" , "Nosník na dvou podporách s lineárním spojitým zatížením"                       ],
+            13   : [["q: ", "a: ", "l: ", "E: ", "J: "],                [q, a, l, E, J]         , ["N/m", "mm", "mm" , "MPa", "mm4"             ], f"imgs/Nosnik13.jpg" , "Nosník na dvou podporách s převislími koncemi a spojitým zatížením"            ],
+            14   : [["Ma: ","Mb: ", "l: ", "E: ", "J: "],               [Ma, Mb, l, E, J]       , ["Nm" , "Nm", "mm" , "MPa", "mm4"             ], f"imgs/Nosnik14.jpg" , "Nosník na dvou podporách zatížený dvěma ohybovými momenty"                     ],
         }
-        lbl = ttk.Label(text= cases[inp][3]).grid(column=0, row=0)
-        img = ImageTk.PhotoImage(Image.open(cases[inp][2]))
+        lbl = ttk.Label(text= cases[inp][4]).place(x=180, y=0)
+        img = ImageTk.PhotoImage(Image.open(cases[inp][3]))
         image = Label(root, image= img)
         image.photo = img
-        image.place(x=300, y=0)
-        x = 2
+        image.place(x=180, y=20)
+        x = 3
         for i in cases[inp][0]:
             ttk.Label(text= i).grid(row=x, column=0)
             x += 1
-        row = 2
+        x = 3
         for i in cases[inp][1]:
-            ttk.Entry(root, textvariable= i).grid(row=row, column=1)
-            row += 1
-
+            ttk.Entry(root, textvariable= i).grid(row=x, column=1)
+            x += 1
+        x = 3
+        for i in cases[inp][2]:
+            ttk.Label(root, text= i).grid(row=x, column=2)
+            x += 1
 
         def confirm():
             cls()
             UI(inp)
-            nos = nosnik(inp, F = F.get(), l = l.get(), E = E.get(), J = J.get(), q = q.get(), Q = Q.get(), M= M.get(), Ma = Ma.get(), Mb = Mb.get(), a = a.get(), b = b.get(), c = c.get())
-            output = nosnik.vypocet(nos)
-            lbl3 = ttk.Label(text= output).place(y=50, x=150)
-        btn = ttk.Button(text= "Potvrdit", command=confirm, width=15).grid(column=2, row=2)
-        btn2 = ttk.Button(text="Zpět", command=nosniky, width=15).grid(column=2, row=0)
+            try:
+                nos = nosnik(inp, F = F.get(), l = l.get(), E = (E.get()*10**6), J = J.get(), q = q.get(), Q = Q.get(), M= M.get(), Ma = Ma.get(), Mb = Mb.get(), a = a.get(), b = b.get(), c = c.get())
+                output = nosnik.vypocet(nos)
+                lbl3 = tk.Label(text= output).place(y=200, x=200)
+            except ZeroDivisionError:
+                print(j)
+                nos = nosnik(inp, F = F.get(), l = l.get(), E = (E.get()*10**6), J = j, q = q.get(), Q = Q.get(), M= M.get(), Ma = Ma.get(), Mb = Mb.get(), a = a.get(), b = b.get(), c = c.get())
+                output = nosnik.vypocet(nos)
+                lbl3 = tk.Label(text= output + "\nJx nebylo zadáno, počítá se s posledním výpočtem kvadratického průřezu").place(y=200, x=200)
+
+
+
+        btn = ttk.Button(text= "Potvrdit", command=confirm, width=15).grid(column=1, row=10)
+        btn2 = ttk.Button(text="Zpět", command=nosniky, width=15).grid(column=1, row=11)
 
 
     def setcase(value):
@@ -570,20 +605,20 @@ def nosniky():
         inp = value
         UI(inp)
 
-    btn = ttk.Button(text="Vetknutý nosík s jednotou silou na konci"                                   ,  command=lambda *args: setcase(1),  width=15).grid(column=0, row=1)
-    btn = ttk.Button(text="Vetknutý nosík s jednotou silou na uprostřed"                               ,  command=lambda *args: setcase(2),  width=15).grid(column=0, row=2)
-    btn = ttk.Button(text="Vetknutý nosík se konstantním spojitým zatížením"                           ,  command=lambda *args: setcase(3),  width=15).grid(column=0, row=3)
-    btn = ttk.Button(text="Vetknutý nosík zatížený ohybovým momentem"                                  ,  command=lambda *args: setcase(4),  width=15).grid(column=0, row=4)
-    btn = ttk.Button(text="Vetknutý nosík se lineárním spojitým zatížením"                             ,  command=lambda *args: setcase(5),  width=15).grid(column=0, row=5)
-    btn = ttk.Button(text="Nosník na dvou podporách se silou uprostřed"                                ,  command=lambda *args: setcase(6),  width=15).grid(column=0, row=6)
-    btn = ttk.Button(text="Nosník na dvou podporách se silou obecně"                                   ,  command=lambda *args: setcase(7),  width=15).grid(column=0, row=7)
-    btn = ttk.Button(text="Nosník na dvou podporách se silou na převislém konci"                       ,  command=lambda *args: setcase(8),  width=15).grid(column=0, row=8)
-    btn = ttk.Button(text="Nosník na dvou podporách se dvěma zatěžujícími silami"                      ,  command=lambda *args: setcase(9),  width=15).grid(column=0, row=9)
-    btn = ttk.Button(text="Nosník na dvou podporách se dvěma zatěžujícími silami na převislých koncích", command=lambda *args: setcase(10), width=15).grid(column=0, row=10)
-    btn = ttk.Button(text="Nosník na dvou podporách s konstantním spojitým zatížením"                  , command=lambda *args: setcase(11), width=15).grid(column=0, row=11)
-    btn = ttk.Button(text="Nosník na dvou podporách s lineárním spojitým zatížením"                    , command=lambda *args: setcase(12), width=15).grid(column=0, row=12)
-    btn = ttk.Button(text="Nosník na dvou podporách s převislími koncemi a spojitým zatížením"         , command=lambda *args: setcase(13), width=15).grid(column=0, row=13)
-    btn = ttk.Button(text="Nosník na dvou podporách zatížený dvěma ohybovými momenty"                  , command=lambda *args: setcase(14), width=15).grid(column=0, row=14)
+    btn = ttk.Button(text="Vetknutý nosík s jednotou silou na konci"                                   ,  command=lambda *args: setcase(1),  width=70).grid(column=0, row=1)
+    btn = ttk.Button(text="Vetknutý nosík s jednotou silou na uprostřed"                               ,  command=lambda *args: setcase(2),  width=70).grid(column=0, row=2)
+    btn = ttk.Button(text="Vetknutý nosík se konstantním spojitým zatížením"                           ,  command=lambda *args: setcase(3),  width=70).grid(column=0, row=3)
+    btn = ttk.Button(text="Vetknutý nosík zatížený ohybovým momentem"                                  ,  command=lambda *args: setcase(4),  width=70).grid(column=0, row=4)
+    btn = ttk.Button(text="Vetknutý nosík se lineárním spojitým zatížením"                             ,  command=lambda *args: setcase(5),  width=70).grid(column=0, row=5)
+    btn = ttk.Button(text="Nosník na dvou podporách se silou uprostřed"                                ,  command=lambda *args: setcase(6),  width=70).grid(column=0, row=6)
+    btn = ttk.Button(text="Nosník na dvou podporách se silou obecně"                                   ,  command=lambda *args: setcase(7),  width=70).grid(column=0, row=7)
+    btn = ttk.Button(text="Nosník na dvou podporách se silou na převislém konci"                       ,  command=lambda *args: setcase(8),  width=70).grid(column=0, row=8)
+    btn = ttk.Button(text="Nosník na dvou podporách se dvěma zatěžujícími silami"                      ,  command=lambda *args: setcase(9),  width=70).grid(column=0, row=9)
+    btn = ttk.Button(text="Nosník na dvou podporách se dvěma zatěžujícími silami na převislých koncích", command=lambda *args: setcase(10),  width=70).grid(column=0, row=10)
+    btn = ttk.Button(text="Nosník na dvou podporách s konstantním spojitým zatížením"                  , command=lambda *args: setcase(11),  width=70).grid(column=0, row=11)
+    btn = ttk.Button(text="Nosník na dvou podporách s lineárním spojitým zatížením"                    , command=lambda *args: setcase(12),  width=70).grid(column=0, row=12)
+    btn = ttk.Button(text="Nosník na dvou podporách s převislími koncemi a spojitým zatížením"         , command=lambda *args: setcase(13),  width=70).grid(column=0, row=13)
+    btn = ttk.Button(text="Nosník na dvou podporách zatížený dvěma ohybovými momenty"                  , command=lambda *args: setcase(14),  width=70).grid(column=0, row=14)
     btn2 = ttk.Button(text="Zpět", command=mainMenu, width=15).grid(column=2, row=0)
 
 
