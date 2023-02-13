@@ -525,22 +525,22 @@ def nosniky():
         b  =  tk.DoubleVar()
         c  =  tk.DoubleVar()
         cases = {
-            1    : [["F: ", "l: ", "E: ", "J: "],                       [F, l, E, J]            , f"imgs/Nosnik1.jpg"  ],
-            2    : [["F: ", "l: ", "E: ", "J: "],                       [F, l, E, J]            , f"imgs/Nosnik2.jpg"  ],
-            3    : [["q: ", "Q: ", "l: ", "E: ", "J: "],                [q, Q, l, E, J]         , f"imgs/Nosnik3.jpg"  ],
-            4    : [["M: ", "l: ", "E: ", "J: "],                       [M, l, E, J]            , f"imgs/Nosnik4.jpg"  ],
-            5    : [["q: ", "l: ", "E: ", "J: "],                       [q, l, E, J]            , f"imgs/Nosnik5.jpg"  ],
-            6    : [["F: ", "l: ", "E: ", "J: "],                       [F, l, E, J]            , f"imgs/Nosnik6.jpg"  ],
-            7    : [["F: ", "a: ", "b: ", "c ", "l: ", "E: ", "J: "],   [F, a, b, c,  l, E, J]  , f"imgs/Nosnik7.jpg"  ],
-            8    : [["F: ", "a: ", "l: ", "E: ", "J: "],                [F, a, l, E, J]         , f"imgs/Nosnik8.jpg"  ],
-            9    : [["F: ", "a: ", "l: ", "E: ", "J: "],                [F, a, l, E, J]         , f"imgs/Nosnik9.jpg"  ],
-            10   : [["F: ", "a: ", "l: ", "E: ", "J: "],                [F, a, l, E, J]         , f"imgs/Nosnik10.jpg" ],
-            11   : [["q: ", "Q: ", "l: ", "E: ", "J: "],                [q, Q, l, E, J]         , f"imgs/Nosnik11.jpg" ],
-            12   : [["q: ", "l: ", "E: ", "J: "],                       [q, l, E, J]            , f"imgs/Nosnik12.jpg" ],
-            13   : [["q: ", "a: ", "l: ", "E: ", "J: "],                [q, a, l, E, J]         , f"imgs/Nosnik13.jpg" ],
-            14   : [["Ma: ","Mb: ", "l: ", "E: ", "J: "],               [Ma, Mb, l, E, J]       , f"imgs/Nosnik14.jpg" ],
+            1    : [["F: ", "l: ", "E: ", "J: "],                       [F, l, E, J]            , f"imgs/Nosnik1.jpg"  , "Vetknutý nosík s jednotou silou na konci"                                      ],
+            2    : [["F: ", "l: ", "E: ", "J: "],                       [F, l, E, J]            , f"imgs/Nosnik2.jpg"  , "Vetknutý nosík s jednotou silou na uprostřed"                                  ],
+            3    : [["q: ", "Q: ", "l: ", "E: ", "J: "],                [q, Q, l, E, J]         , f"imgs/Nosnik3.jpg"  , "Vetknutý nosík se konstantním spojitým zatížením"                              ],
+            4    : [["M: ", "l: ", "E: ", "J: "],                       [M, l, E, J]            , f"imgs/Nosnik4.jpg"  , "Vetknutý nosík zatížený ohybovým momentem"                                     ],
+            5    : [["q: ", "l: ", "E: ", "J: "],                       [q, l, E, J]            , f"imgs/Nosnik5.jpg"  , "Vetknutý nosík se lineárním spojitým zatížením"                                ],
+            6    : [["F: ", "l: ", "E: ", "J: "],                       [F, l, E, J]            , f"imgs/Nosnik6.jpg"  , "Nosník na dvou podporách se silou uprostřed"                                   ],
+            7    : [["F: ", "a: ", "b: ", "c ", "l: ", "E: ", "J: "],   [F, a, b, c,  l, E, J]  , f"imgs/Nosnik7.jpg"  , "Nosník na dvou podporách se silou obecně"                                      ],
+            8    : [["F: ", "a: ", "l: ", "E: ", "J: "],                [F, a, l, E, J]         , f"imgs/Nosnik8.jpg"  , "Nosník na dvou podporách se silou na převislém konci"                          ],
+            9    : [["F: ", "a: ", "l: ", "E: ", "J: "],                [F, a, l, E, J]         , f"imgs/Nosnik9.jpg"  , "Nosník na dvou podporách se dvěma zatěžujícími silami"                         ],
+            10   : [["F: ", "a: ", "l: ", "E: ", "J: "],                [F, a, l, E, J]         , f"imgs/Nosnik10.jpg" , "Nosník na dvou podporách se dvěma zatěžujícími silami na převislých koncích"   ],
+            11   : [["q: ", "Q: ", "l: ", "E: ", "J: "],                [q, Q, l, E, J]         , f"imgs/Nosnik11.jpg" , "Nosník na dvou podporách s konstantním spojitým zatížením"                     ],
+            12   : [["q: ", "l: ", "E: ", "J: "],                       [q, l, E, J]            , f"imgs/Nosnik12.jpg" , "Nosník na dvou podporách s lineárním spojitým zatížením"                       ],
+            13   : [["q: ", "a: ", "l: ", "E: ", "J: "],                [q, a, l, E, J]         , f"imgs/Nosnik13.jpg" , "Nosník na dvou podporách s převislími koncemi a spojitým zatížením"            ],
+            14   : [["Ma: ","Mb: ", "l: ", "E: ", "J: "],               [Ma, Mb, l, E, J]       , f"imgs/Nosnik14.jpg" , "Nosník na dvou podporách zatížený dvěma ohybovými momenty"                     ],
         }
-
+        lbl = ttk.Label(text= cases[inp][3]).grid(column=0, row=0)
         img = ImageTk.PhotoImage(Image.open(cases[inp][2]))
         image = Label(root, image= img)
         image.photo = img
@@ -570,20 +570,20 @@ def nosniky():
         inp = value
         UI(inp)
 
-    btn = ttk.Button(text="1",  command=lambda *args: setcase(1),  width=15).grid(column=0, row=1 )
-    btn = ttk.Button(text="2",  command=lambda *args: setcase(2),  width=15).grid(column=0, row=2 )
-    btn = ttk.Button(text="3",  command=lambda *args: setcase(3),  width=15).grid(column=0, row=3 )
-    btn = ttk.Button(text="4",  command=lambda *args: setcase(4),  width=15).grid(column=0, row=4 )
-    btn = ttk.Button(text="5",  command=lambda *args: setcase(5),  width=15).grid(column=0, row=5 )
-    btn = ttk.Button(text="6",  command=lambda *args: setcase(6),  width=15).grid(column=0, row=6 )
-    btn = ttk.Button(text="7",  command=lambda *args: setcase(7),  width=15).grid(column=0, row=7 )
-    btn = ttk.Button(text="8",  command=lambda *args: setcase(8),  width=15).grid(column=0, row=8 )
-    btn = ttk.Button(text="9",  command=lambda *args: setcase(9),  width=15).grid(column=0, row=9 )
-    btn = ttk.Button(text="10", command=lambda *args: setcase(10), width=15).grid(column=0, row=10)
-    btn = ttk.Button(text="11", command=lambda *args: setcase(11), width=15).grid(column=0, row=11)
-    btn = ttk.Button(text="12", command=lambda *args: setcase(12), width=15).grid(column=0, row=12)
-    btn = ttk.Button(text="13", command=lambda *args: setcase(13), width=15).grid(column=0, row=13)
-    btn = ttk.Button(text="14", command=lambda *args: setcase(14), width=15).grid(column=0, row=14)
+    btn = ttk.Button(text="Vetknutý nosík s jednotou silou na konci"                                   ,  command=lambda *args: setcase(1),  width=15).grid(column=0, row=1)
+    btn = ttk.Button(text="Vetknutý nosík s jednotou silou na uprostřed"                               ,  command=lambda *args: setcase(2),  width=15).grid(column=0, row=2)
+    btn = ttk.Button(text="Vetknutý nosík se konstantním spojitým zatížením"                           ,  command=lambda *args: setcase(3),  width=15).grid(column=0, row=3)
+    btn = ttk.Button(text="Vetknutý nosík zatížený ohybovým momentem"                                  ,  command=lambda *args: setcase(4),  width=15).grid(column=0, row=4)
+    btn = ttk.Button(text="Vetknutý nosík se lineárním spojitým zatížením"                             ,  command=lambda *args: setcase(5),  width=15).grid(column=0, row=5)
+    btn = ttk.Button(text="Nosník na dvou podporách se silou uprostřed"                                ,  command=lambda *args: setcase(6),  width=15).grid(column=0, row=6)
+    btn = ttk.Button(text="Nosník na dvou podporách se silou obecně"                                   ,  command=lambda *args: setcase(7),  width=15).grid(column=0, row=7)
+    btn = ttk.Button(text="Nosník na dvou podporách se silou na převislém konci"                       ,  command=lambda *args: setcase(8),  width=15).grid(column=0, row=8)
+    btn = ttk.Button(text="Nosník na dvou podporách se dvěma zatěžujícími silami"                      ,  command=lambda *args: setcase(9),  width=15).grid(column=0, row=9)
+    btn = ttk.Button(text="Nosník na dvou podporách se dvěma zatěžujícími silami na převislých koncích", command=lambda *args: setcase(10), width=15).grid(column=0, row=10)
+    btn = ttk.Button(text="Nosník na dvou podporách s konstantním spojitým zatížením"                  , command=lambda *args: setcase(11), width=15).grid(column=0, row=11)
+    btn = ttk.Button(text="Nosník na dvou podporách s lineárním spojitým zatížením"                    , command=lambda *args: setcase(12), width=15).grid(column=0, row=12)
+    btn = ttk.Button(text="Nosník na dvou podporách s převislími koncemi a spojitým zatížením"         , command=lambda *args: setcase(13), width=15).grid(column=0, row=13)
+    btn = ttk.Button(text="Nosník na dvou podporách zatížený dvěma ohybovými momenty"                  , command=lambda *args: setcase(14), width=15).grid(column=0, row=14)
     btn2 = ttk.Button(text="Zpět", command=mainMenu, width=15).grid(column=2, row=0)
 
 
