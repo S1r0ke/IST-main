@@ -89,34 +89,105 @@ def normy():
 def srouby_a_matice():
     print("Main.py srouby a matice")
     cls()
-    lbl = ttk.Label(text="Srouby a matice").grid(column=1, row=0)
-    D = tk.DoubleVar()
-    lbl2 = ttk.Label(text="M:").grid(column=0, row=1)
-    lbl3 = ttk.Label(text="l:").grid(column=0, row=2)
-    ent = ttk.Entry(root, textvariable= D).grid(column=1, row=1)
-    img = ImageTk.PhotoImage(Image.open(f"imgs/Srouby.jpg"))
-    image = Label(root, image= img)
-    image.photo = img
-    image.place(x=250, y=0)
-    def confirm_s_m():
-        srouby_a_matice()
-        print("confirm")
-        sroub = sroub_assign(D.get())
-        row = 1
-        if sroub != None:
-            l_possible = sroub[2]
-            for l in l_possible:
-                def confirm_l(L = l):
-                    print("confirm")
-                    sroub[2] = L
-                    lbl4 = ttk.Label(text= f"M {sroub[0]}\nk = {sroub[1]}mm \nl = {sroub[2]}mm \nsmax = {sroub[3]}mm").place(y= 50, x= 140)
-                row = row + 1
-                ttk.Button(text=l, command=confirm_l, width=15).grid(column=1, row= row)
-        else:
-            lbl4 = ttk.Label(text= "Neplatný\nprůměr\nšroubu\n ",).place(y= 50, x= 140)
-            pass
-    btn = ttk.Button(text= "Potvrdit", command=confirm_s_m, width=15).grid(column=2, row=1)
-    btn2 = ttk.Button(text="Zpět", command=mainMenu, width=15).grid(column=2, row=0)
+    lbl = ttk.Label(text="Srouby a matice").grid(column=0, row=0)
+    def srouby():
+        print("Main.py srouby")
+        cls()
+        lbl = ttk.Label(text="Srouby").grid(column=1, row=0)
+        D = tk.DoubleVar()
+        lbl2 = ttk.Label(text="M:").grid(column=0, row=1)
+        lbl3 = ttk.Label(text="l:").grid(column=0, row=2)
+        ent = ttk.Entry(root, textvariable= D).grid(column=1, row=1)
+        img = ImageTk.PhotoImage(Image.open(f"imgs/Srouby.jpg"))
+        image = Label(root, image= img)
+        image.photo = img
+        image.place(x=320, y=0)
+        img2 = ImageTk.PhotoImage(Image.open(f"imgs/Srouby2.jpg"))
+        image2 = Label(root, image= img2)
+        image2.photo = img2
+        image2.place(x=320, y=170)
+        def confirm_s_2():
+            srouby()
+            print("confirm")
+            sroub = sroub_assign(D.get(), "l")
+            row = 1
+            if sroub != None:
+                l_possible = sroub[2]
+                for l in l_possible:
+                    def confirm_l(L = l):
+                        print("confirm")
+                        sroub[2] = L
+                        lbl4 = ttk.Label(text= f"M {sroub[0]}\nk = {sroub[1]}mm \nl = {sroub[2]}mm \nsmax = {sroub[3]}mm").place(y= 75, x= 140)
+                    row = row + 1
+                    ttk.Button(text=l, command=confirm_l, width=15).grid(column=1, row= row)
+            else:
+                lbl4 = ttk.Label(text= "Neplatný\nprůměr\nšroubu\n ",).place(y= 75, x= 140)
+                pass
+        def confirm_s_1():
+            srouby()
+            print("confirm")
+            sroub = sroub_assign(D.get(), "s")
+            row = 1
+            if sroub != None:
+                l_possible = sroub[2]
+                for l in l_possible:
+                    def confirm_l(L = l):
+                        print("confirm")
+                        sroub[2] = L
+                        lbl4 = ttk.Label(text= f"M {sroub[0]}\nk = {sroub[1]}mm \nl = {sroub[2]}mm \nsmax = {sroub[3]}mm").place(y= 75, x= 140)
+                    row = row + 1
+                    ttk.Button(text=l, command=confirm_l, width=15).grid(column=1, row= row)
+            else:
+                lbl4 = ttk.Label(text= "Neplatný\nprůměr\nšroubu\n ",).place(y= 75, x= 140)
+                pass
+        btn = ttk.Button(text= "Potvrdit - kratší závit", command=confirm_s_1, width=25).grid(column=2, row=1)
+        btn2 = ttk.Button(text= "Potvrdit - závit až k hlavě", command=confirm_s_2, width=25).grid(column=2, row=2)
+        btn3 = ttk.Button(text="Zpět", command=srouby_a_matice, width=25).grid(column=2, row=0)
+    def matice():
+        print("Main.py matice")
+        cls()
+        lbl = ttk.Label(text="Matice").grid(column=1, row=0)
+        D = tk.DoubleVar()
+        lbl2 = ttk.Label(text="M:").grid(column=0, row=1)
+        ent = ttk.Entry(root, textvariable= D).grid(column=1, row=1)
+        img = ImageTk.PhotoImage(Image.open(f"imgs/matice.jpg"))
+        image = Label(root, image= img)
+        image.photo = img
+        image.place(x=320, y=0)
+        img2 = ImageTk.PhotoImage(Image.open(f"imgs/matice2.jpg"))
+        image2 = Label(root, image= img2)
+        image2.photo = img2
+        image2.place(x=320, y=170)
+        def confirm_m1():
+            matice()
+            print("confirm")
+            mat = matice_assign(D.get(), 1)
+            print(mat)
+            row = 1
+            if mat != None:
+                lbl4 = ttk.Label(text= f"M {mat[0]}\nda = {mat[1]}mm \nmmin = {mat[2]}mm \nmmax = {mat[3]}mm\ns = {mat[4]}\ne = {mat[5]}").place(y= 75, x= 140)
+            else:
+                lbl4 = ttk.Label(text= "Neplatný\nprůměr\nzávitu\n ",).place(y= 75, x= 140)
+                pass
+        def confirm_m2():
+            matice()
+            print("confirm")
+            mat = matice_assign(D.get(), 2)
+            print(mat)
+            row = 1
+            if matice != None:
+                lbl4 = ttk.Label(text= f"M {mat[0]}\nda = {mat[1]}mm \nmmin = {mat[2]}mm \nmmax = {mat[3]}mm\ns = {mat[4]}\ne = {mat[5]}").place(y= 75, x= 140)
+            else:
+                lbl4 = ttk.Label(text= "Neplatný\nprůměr\nzávitu\n ",).place(y= 75, x= 140)
+                pass
+        btn = ttk.Button(text= "Potvrdit - typ 1", command=confirm_m1, width=25).grid(column=2, row=1)
+        btn2 = ttk.Button(text= "Potvrdit - matice nízké", command=confirm_m2, width=25).grid(column=2, row=2)
+
+        btn3 = ttk.Button(text="Zpět", command=srouby_a_matice, width=25).grid(column=2, row=0)
+    btn = ttk.Button(text="Šrouby", command=srouby, width=25).grid(column=0, row=1)
+    btn2 = ttk.Button(text="Matice", command=matice, width=25).grid(column=0, row=2)
+    btn3 = ttk.Button(text="Zpět", command=mainMenu, width=25).grid(column=0, row=3)
+
 
 
 def pera():
@@ -317,10 +388,10 @@ def kv():
         h = tk.DoubleVar()
         ttk.Label(text= "b: ").grid(row=1, column=0)
         ttk.Entry(root, textvariable= b).grid(row=1, column=1)
-        ttk.Label(text= "b1: ").grid(row=1, column=0)
-        ttk.Entry(root, textvariable= b1).grid(row=1, column=1)
-        ttk.Label(text= "h: ").grid(row=2, column=0)
-        ttk.Entry(root, textvariable= h).grid(row=2, column=1)
+        ttk.Label(text= "b1: ").grid(row=2, column=0)
+        ttk.Entry(root, textvariable= b1).grid(row=2, column=1)
+        ttk.Label(text= "h: ").grid(row=3, column=0)
+        ttk.Entry(root, textvariable= h).grid(row=3, column=1)
         img = ImageTk.PhotoImage(Image.open(f"imgs/kv8.jpg"))
         image = Label(root, image= img)
         image.photo = img
@@ -587,12 +658,12 @@ def nosniky():
             try:
                 nos = nosnik(inp, F = F.get(), l = l.get(), E = (E.get()*10**6), J = J.get(), q = q.get(), Q = Q.get(), M= M.get(), Ma = Ma.get(), Mb = Mb.get(), a = a.get(), b = b.get(), c = c.get())
                 output = nosnik.vypocet(nos)
-                lbl3 = tk.Label(text= output).place(y=200, x=200)
+                lbl3 = tk.Label(text= output).place(y=200, x=0)
             except ZeroDivisionError:
                 print(j)
                 nos = nosnik(inp, F = F.get(), l = l.get(), E = (E.get()*10**6), J = j, q = q.get(), Q = Q.get(), M= M.get(), Ma = Ma.get(), Mb = Mb.get(), a = a.get(), b = b.get(), c = c.get())
                 output = nosnik.vypocet(nos)
-                lbl3 = tk.Label(text= output + "\nJx nebylo zadáno, počítá se s posledním výpočtem kvadratického průřezu").place(y=200, x=200)
+                lbl3 = tk.Label(text= output + "\nJx nebylo zadáno, počítá se s posledním výpočtem kvadratického průřezu").place(y=200, x=0)
 
 
 
@@ -605,15 +676,15 @@ def nosniky():
         inp = value
         UI(inp)
 
-    btn = ttk.Button(text="Vetknutý nosík s jednotou silou na konci"                                   ,  command=lambda *args: setcase(1),  width=70).grid(column=0, row=1)
-    btn = ttk.Button(text="Vetknutý nosík s jednotou silou na uprostřed"                               ,  command=lambda *args: setcase(2),  width=70).grid(column=0, row=2)
-    btn = ttk.Button(text="Vetknutý nosík se konstantním spojitým zatížením"                           ,  command=lambda *args: setcase(3),  width=70).grid(column=0, row=3)
-    btn = ttk.Button(text="Vetknutý nosík zatížený ohybovým momentem"                                  ,  command=lambda *args: setcase(4),  width=70).grid(column=0, row=4)
-    btn = ttk.Button(text="Vetknutý nosík se lineárním spojitým zatížením"                             ,  command=lambda *args: setcase(5),  width=70).grid(column=0, row=5)
-    btn = ttk.Button(text="Nosník na dvou podporách se silou uprostřed"                                ,  command=lambda *args: setcase(6),  width=70).grid(column=0, row=6)
-    btn = ttk.Button(text="Nosník na dvou podporách se silou obecně"                                   ,  command=lambda *args: setcase(7),  width=70).grid(column=0, row=7)
-    btn = ttk.Button(text="Nosník na dvou podporách se silou na převislém konci"                       ,  command=lambda *args: setcase(8),  width=70).grid(column=0, row=8)
-    btn = ttk.Button(text="Nosník na dvou podporách se dvěma zatěžujícími silami"                      ,  command=lambda *args: setcase(9),  width=70).grid(column=0, row=9)
+    btn = ttk.Button(text="Vetknutý nosík s jednotou silou na konci"                                   , command=lambda *args: setcase(1),  width=70 ).grid(column=0, row=1 )
+    btn = ttk.Button(text="Vetknutý nosík s jednotou silou na uprostřed"                               , command=lambda *args: setcase(2),  width=70 ).grid(column=0, row=2 )
+    btn = ttk.Button(text="Vetknutý nosík se konstantním spojitým zatížením"                           , command=lambda *args: setcase(3),  width=70 ).grid(column=0, row=3 )
+    btn = ttk.Button(text="Vetknutý nosík zatížený ohybovým momentem"                                  , command=lambda *args: setcase(4),  width=70 ).grid(column=0, row=4 )
+    btn = ttk.Button(text="Vetknutý nosík se lineárním spojitým zatížením"                             , command=lambda *args: setcase(5),  width=70 ).grid(column=0, row=5 )
+    btn = ttk.Button(text="Nosník na dvou podporách se silou uprostřed"                                , command=lambda *args: setcase(6),  width=70 ).grid(column=0, row=6 )
+    btn = ttk.Button(text="Nosník na dvou podporách se silou obecně"                                   , command=lambda *args: setcase(7),  width=70 ).grid(column=0, row=7 )
+    btn = ttk.Button(text="Nosník na dvou podporách se silou na převislém konci"                       , command=lambda *args: setcase(8),  width=70 ).grid(column=0, row=8 )
+    btn = ttk.Button(text="Nosník na dvou podporách se dvěma zatěžujícími silami"                      , command=lambda *args: setcase(9),  width=70 ).grid(column=0, row=9 )
     btn = ttk.Button(text="Nosník na dvou podporách se dvěma zatěžujícími silami na převislých koncích", command=lambda *args: setcase(10),  width=70).grid(column=0, row=10)
     btn = ttk.Button(text="Nosník na dvou podporách s konstantním spojitým zatížením"                  , command=lambda *args: setcase(11),  width=70).grid(column=0, row=11)
     btn = ttk.Button(text="Nosník na dvou podporách s lineárním spojitým zatížením"                    , command=lambda *args: setcase(12),  width=70).grid(column=0, row=12)
