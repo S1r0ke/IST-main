@@ -1,4 +1,4 @@
-with open("subcode/normy_database.json", "r+", encoding="utf8") as f:
+with open("subcode/normy_database.txt", "r+", encoding="utf8") as f:
     str = str(f.read())
 
 def create_norm(inp):
