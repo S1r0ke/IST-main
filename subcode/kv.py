@@ -37,7 +37,7 @@ def rectangle(b, h):
     Jz = (b**3*h)/12
     Wox = (b*h**2)/6
     Woz = (b**2*h)/6
-    return ([Jx, f"A = {round(Area, 3)}mm2\nJx = {round(Jx, 3)}mm4\nJz = {Jz}mm4\nWo = {round(Wox, 3)}mm3\nWoz = {round(Woz, 3)}mm3"])
+    return ([Jx, f"A = {round(Area, 3)}mm2\nJx = {round(Jx, 3)}mm4\nJz = {round(Jz, 3)}mm4\nWo = {round(Wox, 3)}mm3\nWoz = {round(Woz, 3)}mm3"])
 
 
 def triangle(b, h):
@@ -46,7 +46,7 @@ def triangle(b, h):
     Jx2 = (b*h**3)/12
     Wx = (b*h**2)/24
     Wx2 = (b*h**2)/12
-    return ([Jx, f"A = {round(Area, 3)}mm2\nJx = {round(Jx, 3)}mm4\nJx' = {Jx2}mm4\nWx = {round(Wx, 3)}mm3\nWx = {round(Wx2, 3)}mm3"])
+    return ([Jx, f"A = {round(Area, 3)}mm2\nJx = {round(Jx, 3)}mm4\nJx' = {round(Jx2, 3)}mm4\nWx = {round(Wx, 3)}mm3\nWx = {round(Wx2, 3)}mm3"])
 
 
 def hex(s, e):
