@@ -4,7 +4,7 @@ from   tkinter import ttk
 from   PIL import Image, ImageTk
 from   subcode.Zavity import *
 from   subcode.srouby_a_matice import *
-from   subcode.Normy import *
+from   subcode.normy import *
 from   subcode.pera import *
 from   subcode.kv import *
 from   subcode.cepy import *
