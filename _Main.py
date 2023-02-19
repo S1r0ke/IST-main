@@ -23,7 +23,8 @@ def mainMenu():
     btn5 = ttk.Button(root, text="Přiřazení pera k hřídeli", command=pera, width=30).grid(column=0, row=4)
     btn6 = ttk.Button(root, text="Přiřazení závlačky k čepu", command=cepy, width=30).grid(column=0, row=5)
     btn7 = ttk.Button(root, text="Výpočet kvadratických průřezů", command=kv, width=30).grid(column=0, row=6)
-    btn7 = ttk.Button(root, text="Výpočet nosníků", command=nosniky, width=30).grid(column=0, row=7)
+    btn8 = ttk.Button(root, text="Výpočet nosníků", command=nosniky, width=30).grid(column=0, row=7)
+    btn9 = ttk.Button(root, text="Historie výstupů", command=outputFile, width=30).grid(column=0, row=8)
     print("all windows:", root.winfo_children())
 
 
@@ -31,6 +32,11 @@ def cls():
     print("Main.py cls")
     for frame in root.winfo_children():
         frame.destroy()
+
+def export(ex):
+    print("Main.py export")
+    with open("export.txt", "w") as f:
+        f.write(f"{ex}\n")
 
 
 def zavity():
@@ -52,13 +58,15 @@ def zavity():
         p_allowed = p_assigment(D.get())
         print(p_allowed)
         if D.get() not in d_list:
-            lbl4 = ttk.Label(text= "Neplatný\nprůměr\nzávitu\n ",).place(y= 50, x= 120)
+            lbl4 = ttk.Label(text= "Neplatný\nprůměr\nzávitu",).place(y= 50, x= 120)
+            export("Neplatný\nprůměr\nzávitu")
             pass
         else:
             row = 1
             for p in p_allowed:
                 def confirm_z(P = p):
                     print("confirm")
+                    export(thread_print(D.get(), P))
                     lbl4 = ttk.Label(text= thread_print(D.get(), P)).place(y= 50, x= 120)
                 row = row + 1
                 ttk.Button(text=p, command=confirm_z, width=15).grid(column=1, row= row)
@@ -82,6 +90,7 @@ def normy():
         lbl3 = Text(root, height=40)
         lbl3.place(y=80, x=0)
         lbl3.insert(INSERT, norm_print(find_num(norm.get())))
+        export(norm_print(find_num(norm.get())))
     btn = ttk.Button(root, text= "Potvrdit", command= confirm_n, width=15).grid(column=2, row=1)
     btn2 = ttk.Button(text="Zpět", command=mainMenu, width=15).grid(column=2, row=0)
 
@@ -118,10 +127,12 @@ def srouby_a_matice():
                         print("confirm")
                         sroub[2] = L
                         lbl4 = ttk.Label(text= f"M {sroub[0]}\nk = {sroub[1]}mm \nl = {sroub[2]}mm \nsmax = {sroub[3]}mm").place(y= 75, x= 140)
+                        export(f"M {sroub[0]}\nk = {sroub[1]}mm \nl = {sroub[2]}mm \nsmax = {sroub[3]}mm")
                     row = row + 1
                     ttk.Button(text=l, command=confirm_l, width=15).grid(column=1, row= row)
             else:
-                lbl4 = ttk.Label(text= "Neplatný\nprůměr\nšroubu\n ",).place(y= 75, x= 140)
+                lbl4 = ttk.Label(text= "Neplatný\nprůměr\nšroubu",).place(y= 75, x= 140)
+                export("Neplatný\nprůměr\nšroubu")
                 pass
         def confirm_s_1():
             srouby()
@@ -135,10 +146,12 @@ def srouby_a_matice():
                         print("confirm")
                         sroub[2] = L
                         lbl4 = ttk.Label(text= f"M {sroub[0]}\nk = {sroub[1]}mm \nl = {sroub[2]}mm \nsmax = {sroub[3]}mm").place(y= 75, x= 140)
+                        export(f"M {sroub[0]}\nk = {sroub[1]}mm \nl = {sroub[2]}mm \nsmax = {sroub[3]}mm")
                     row = row + 1
                     ttk.Button(text=l, command=confirm_l, width=15).grid(column=1, row= row)
             else:
                 lbl4 = ttk.Label(text= "Neplatný\nprůměr\nšroubu\n ",).place(y= 75, x= 140)
+                export("Neplatný\nprůměr\nšroubu")
                 pass
         btn = ttk.Button(text= "Potvrdit - kratší závit", command=confirm_s_1, width=25).grid(column=2, row=1)
         btn2 = ttk.Button(text= "Potvrdit - závit až k hlavě", command=confirm_s_2, width=25).grid(column=2, row=2)
@@ -166,8 +179,10 @@ def srouby_a_matice():
             row = 1
             if mat != None:
                 lbl4 = ttk.Label(text= f"M {mat[0]}\nda = {mat[1]}mm \nmmin = {mat[2]}mm \nmmax = {mat[3]}mm\ns = {mat[4]}\ne = {mat[5]}").place(y= 75, x= 140)
+                export(f"M {mat[0]}\nda = {mat[1]}mm \nmmin = {mat[2]}mm \nmmax = {mat[3]}mm\ns = {mat[4]}\ne = {mat[5]}")
             else:
                 lbl4 = ttk.Label(text= "Neplatný\nprůměr\nzávitu\n ",).place(y= 75, x= 140)
+                export("Neplatný\nprůměr\nzávitu")
                 pass
         def confirm_m2():
             matice()
@@ -177,8 +192,10 @@ def srouby_a_matice():
             row = 1
             if matice != None:
                 lbl4 = ttk.Label(text= f"M {mat[0]}\nda = {mat[1]}mm \nmmin = {mat[2]}mm \nmmax = {mat[3]}mm\ns = {mat[4]}\ne = {mat[5]}").place(y= 75, x= 140)
+                export(f"M {mat[0]}\nda = {mat[1]}mm \nmmin = {mat[2]}mm \nmmax = {mat[3]}mm\ns = {mat[4]}\ne = {mat[5]}")
             else:
                 lbl4 = ttk.Label(text= "Neplatný\nprůměr\nzávitu\n ",).place(y= 75, x= 140)
+                export("Neplatný\nprůměr\nzávitu")
                 pass
         btn = ttk.Button(text= "Potvrdit - typ 1", command=confirm_m1, width=25).grid(column=2, row=1)
         btn2 = ttk.Button(text= "Potvrdit - matice nízké", command=confirm_m2, width=25).grid(column=2, row=2)
@@ -205,12 +222,12 @@ def pera():
         pera()
         print("confirm")
         pero = find_parm(D.get())
+        export(pero)
         lbl3 = ttk.Label(text= pero).grid(column=0, row= 3)
     btn = ttk.Button(text= "Potvrdit", command=confirm_D, width=15).grid(column=2, row=2)
     btn2 = ttk.Button(text= "Zpět", command=mainMenu, width=15).grid(column=2, row=0)
 
 j = float()
-
 
 def setj(value):
     global j
@@ -238,6 +255,7 @@ def kv():
             square_UI()
             print("confirm")
             answer = square(a.get())
+            export(answer)
             setj(answer[0])
             lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=15, y=55)
         ttk.Button(text= "Uložit pro výpočet nosníku", command=lambda *args: setj())
@@ -262,6 +280,7 @@ def kv():
             hollow_square_UI()
             print("confirm")
             answer = hollow_square(H.get(), h.get())
+            export(answer)
             setj(answer[0])
             lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
@@ -282,6 +301,7 @@ def kv():
             rotated_square_UI()
             print("confirm")
             answer = rotated_square(a.get())
+            export(answer)
             setj(answer[0])
             lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
@@ -305,6 +325,7 @@ def kv():
             rotated_hollow_square_UI()
             print("confirm")
             answer = rotated_hollow_square(H.get(),h.get())
+            export(answer)
             setj(answer[0])
             lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
@@ -328,6 +349,7 @@ def kv():
             rectangle_UI()
             print("confirm")
             answer = rectangle(b.get(),h.get())
+            export(answer)
             setj(answer[0])
             lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
@@ -351,6 +373,7 @@ def kv():
             triangle_UI()
             print("confirm")
             answer = triangle(b.get(),h.get())
+            export(answer)
             setj(answer[0])
             lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
@@ -374,6 +397,7 @@ def kv():
             hex_UI()
             print("confirm")
             answer = hex(e.get(),s.get())
+            export(answer)
             setj(answer[0])
             lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
@@ -400,6 +424,7 @@ def kv():
             trapezoid_UI()
             print("confirm")
             answer = trapezoid(b.get(),b1.get(),h.get())
+            export(answer)
             setj(answer[0])
             lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
@@ -420,6 +445,7 @@ def kv():
             circle_UI()
             print("confirm")
             answer = circle(d.get())
+            export(answer)
             setj(answer[0])
             lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
@@ -443,6 +469,7 @@ def kv():
             hollow_circle_UI()
             print("confirm")
             answer = hollow_circle(D.get(), d.get())
+            export(answer)
             setj(answer[0])
             lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
@@ -466,6 +493,7 @@ def kv():
             elipse_UI()
             print("confirm")
             answer = elipse(b.get(), h.get())
+            export(answer)
             setj(answer[0])
             lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=75)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
@@ -498,6 +526,7 @@ def kv():
             TUL_UI()
             print("confirm")
             answer = TUL(a.get(), H.get(), t.get(), B.get(), h.get())
+            export(answer)
             setj(answer[0])
             lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=140)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
@@ -527,6 +556,7 @@ def kv():
             H_UI()
             print("confirm")
             answer = H_profile(B.get(), b.get(), H.get(), h.get())
+            export(answer)
             setj(answer[0])
             lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=140)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
@@ -556,6 +586,7 @@ def kv():
             I_UI()
             print("confirm")
             answer = I_profile(B.get(), b.get(), H.get(), h.get())
+            export(answer)
             setj(answer[0])
             lbl3 = ttk.Label(text= answer[1] + "\n\nHodnota Jx byla uložena pro\npřípadné výpočty nosníku").place(x=20, y=140)
         ttk.Button(text= "Potvrdit", command= confirm, width=10).grid(column=8, row=1)
@@ -593,6 +624,7 @@ def cepy():
         cepy()
         print("confirm")
         zavlacka = assign_zavlacka(D.get())
+        export(zavlacka)
         lbl3 = ttk.Label(text= zavlacka).grid(column=0, row= 3)
     btn = ttk.Button(text= "Potvrdit", command=confirm_D, width=15).grid(column=2, row=2)
     btn2 = ttk.Button(text="Zpět", command=mainMenu, width=15).grid(column=2, row=0)
@@ -658,11 +690,13 @@ def nosniky():
             try:
                 nos = nosnik(inp, F = F.get(), l = l.get(), E = (E.get()*10**6), J = J.get(), q = q.get(), Q = Q.get(), M= M.get(), Ma = Ma.get(), Mb = Mb.get(), a = a.get(), b = b.get(), c = c.get())
                 output = nosnik.vypocet(nos)
+                export(output)
                 lbl3 = tk.Label(text= output).place(y=200, x=0)
             except ZeroDivisionError:
                 print(j)
                 nos = nosnik(inp, F = F.get(), l = l.get(), E = (E.get()*10**6), J = j, q = q.get(), Q = Q.get(), M= M.get(), Ma = Ma.get(), Mb = Mb.get(), a = a.get(), b = b.get(), c = c.get())
                 output = nosnik.vypocet(nos)
+                export(output)
                 lbl3 = tk.Label(text= output + "\nJx nebylo zadáno, počítá se s posledním výpočtem kvadratického průřezu").place(y=200, x=0)
 
 
@@ -690,7 +724,25 @@ def nosniky():
     btn = ttk.Button(text="Nosník na dvou podporách s lineárním spojitým zatížením"                    , command=lambda *args: setcase(12),  width=70).grid(column=0, row=12)
     btn = ttk.Button(text="Nosník na dvou podporách s převislími koncemi a spojitým zatížením"         , command=lambda *args: setcase(13),  width=70).grid(column=0, row=13)
     btn = ttk.Button(text="Nosník na dvou podporách zatížený dvěma ohybovými momenty"                  , command=lambda *args: setcase(14),  width=70).grid(column=0, row=14)
-    btn2 = ttk.Button(text="Zpět", command=mainMenu, width=15).grid(column=2, row=0)
+    btn = ttk.Button(text="Zpět", command=mainMenu, width=15).grid(column=2, row=0)
+
+
+
+
+def outputFile():
+        cls()
+        lbl = ttk.Label(text="Historie výstupů").grid(column=0, row=0)
+        with open("export.txt", "r+") as f:
+            text = f.read()
+        txt = Text(root, height=40)
+        txt.place(y=80, x=0)
+        txt.insert(INSERT, text)
+        def clearexport():
+            f = open('export.txt', 'r+')
+            f.truncate(0)
+            outputFile()
+        btn = ttk.Button(text="Vymazat výstupy", command=clearexport, width=15).grid(column=0, row=2)
+        btn2 = ttk.Button(text="Zpět", command=mainMenu, width=15).grid(column=0, row=1)
 
 
 root = Tk()
