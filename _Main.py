@@ -1,22 +1,22 @@
-import tkinter as tk
-from   tkinter import *
-from   tkinter import ttk
-from   PIL import Image, ImageTk
-from   subcode.Zavity import *
+import tkinter                 as tk
+from   tkinter                 import *
+from   tkinter                 import ttk
+from   PIL                     import Image, ImageTk
+from   subcode.Zavity          import *
 from   subcode.srouby_a_matice import *
-from   subcode.normy import *
-from   subcode.pera import *
-from   subcode.kv import *
-from   subcode.cepy import *
-from   subcode.nosniky import *
+from   subcode.normy           import *
+from   subcode.pera            import *
+from   subcode.kv              import *
+from   subcode.cepy            import *
+from   subcode.nosniky         import *
 
 def mainMenu():
     cls()
     print("Main.py mainMenu")
     root.title("Interaktivní strojnické tabulky")
     root.minsize(1000,800)
-    lbl =  ttk.Label (root, text="Interaktivní strojnické tabulky", padding=2).grid(column=0, row=0)
-    btn =  ttk.Button(root, text="Zavřít", command=root.destroy, width=30).grid(column=0, row=10)
+    lbl  = ttk.Label (root, text="Interaktivní strojnické tabulky", padding=2).grid(column=0, row=0)
+    btn  = ttk.Button(root, text="Zavřít", command=root.destroy, width=30).grid(column=0, row=10)
     btn2 = ttk.Button(root, text="Závity", command=zavity, width=30).grid(column=0, row=1)
     btn3 = ttk.Button(root, text="Vyhledávač norem", command=normy, width=30).grid(column=0, row=2)
     btn4 = ttk.Button(root, text="Šrouby a matice", command=srouby_a_matice, width=30).grid(column=0, row=3)
