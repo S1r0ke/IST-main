@@ -33,6 +33,7 @@ def cls():
     for frame in root.winfo_children():
         frame.destroy()
 
+
 def export(ex):
     print("Main.py export")
     with open("export.txt", "a") as f:
@@ -711,15 +712,15 @@ def nosniky():
         inp = value
         UI(inp)
 
-    btn = ttk.Button(text="Vetknutý nosík s jednotou silou na konci"                                   , command=lambda *args: setcase(1),  width=70 ).grid(column=0, row=1 )
-    btn = ttk.Button(text="Vetknutý nosík s jednotou silou na uprostřed"                               , command=lambda *args: setcase(2),  width=70 ).grid(column=0, row=2 )
-    btn = ttk.Button(text="Vetknutý nosík se konstantním spojitým zatížením"                           , command=lambda *args: setcase(3),  width=70 ).grid(column=0, row=3 )
-    btn = ttk.Button(text="Vetknutý nosík zatížený ohybovým momentem"                                  , command=lambda *args: setcase(4),  width=70 ).grid(column=0, row=4 )
-    btn = ttk.Button(text="Vetknutý nosík se lineárním spojitým zatížením"                             , command=lambda *args: setcase(5),  width=70 ).grid(column=0, row=5 )
-    btn = ttk.Button(text="Nosník na dvou podporách se silou uprostřed"                                , command=lambda *args: setcase(6),  width=70 ).grid(column=0, row=6 )
-    btn = ttk.Button(text="Nosník na dvou podporách se silou obecně"                                   , command=lambda *args: setcase(7),  width=70 ).grid(column=0, row=7 )
-    btn = ttk.Button(text="Nosník na dvou podporách se silou na převislém konci"                       , command=lambda *args: setcase(8),  width=70 ).grid(column=0, row=8 )
-    btn = ttk.Button(text="Nosník na dvou podporách se dvěma zatěžujícími silami"                      , command=lambda *args: setcase(9),  width=70 ).grid(column=0, row=9 )
+    btn = ttk.Button(text="Vetknutý nosík s jednotou silou na konci"                                   , command=lambda *args: setcase(1) ,  width=70).grid(column=0, row=1 )
+    btn = ttk.Button(text="Vetknutý nosík s jednotou silou na uprostřed"                               , command=lambda *args: setcase(2) ,  width=70).grid(column=0, row=2 )
+    btn = ttk.Button(text="Vetknutý nosík se konstantním spojitým zatížením"                           , command=lambda *args: setcase(3) ,  width=70).grid(column=0, row=3 )
+    btn = ttk.Button(text="Vetknutý nosík zatížený ohybovým momentem"                                  , command=lambda *args: setcase(4) ,  width=70).grid(column=0, row=4 )
+    btn = ttk.Button(text="Vetknutý nosík se lineárním spojitým zatížením"                             , command=lambda *args: setcase(5) ,  width=70).grid(column=0, row=5 )
+    btn = ttk.Button(text="Nosník na dvou podporách se silou uprostřed"                                , command=lambda *args: setcase(6) ,  width=70).grid(column=0, row=6 )
+    btn = ttk.Button(text="Nosník na dvou podporách se silou obecně"                                   , command=lambda *args: setcase(7) ,  width=70).grid(column=0, row=7 )
+    btn = ttk.Button(text="Nosník na dvou podporách se silou na převislém konci"                       , command=lambda *args: setcase(8) ,  width=70).grid(column=0, row=8 )
+    btn = ttk.Button(text="Nosník na dvou podporách se dvěma zatěžujícími silami"                      , command=lambda *args: setcase(9) ,  width=70).grid(column=0, row=9 )
     btn = ttk.Button(text="Nosník na dvou podporách se dvěma zatěžujícími silami na převislých koncích", command=lambda *args: setcase(10),  width=70).grid(column=0, row=10)
     btn = ttk.Button(text="Nosník na dvou podporách s konstantním spojitým zatížením"                  , command=lambda *args: setcase(11),  width=70).grid(column=0, row=11)
     btn = ttk.Button(text="Nosník na dvou podporách s lineárním spojitým zatížením"                    , command=lambda *args: setcase(12),  width=70).grid(column=0, row=12)
