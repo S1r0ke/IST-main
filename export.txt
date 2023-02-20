@@ -1,62 +1,40 @@
+M20.0x0.5
+d1 = 19.675mm
+d2 = 19.459mm
+d3 = 19.387mm
 
-ÈSN EN ISO 56000
-(01 0130), kat. è. 512498
-pøevzata vyhlášením ve vìstníku
-Management inovací - Základy a slovník
-Vydána: 2021-09
+M20.0x0.75
+d1 = 19.513mm
+d2 = 19.188mm
+d3 = 19.08mm
 
-ÈSN EN ISO 56002
-(01 0130), kat. è. 512497
-pøevzata vyhlášením ve vìstníku
-Management inovací - Systém managementu
-inovací - Pokyny
-Vydána: 2021-09
+M20.0x1
+d1 = 19.351mm
+d2 = 18.918mm
+d3 = 18.773mm
 
-ÈSN EN ISO 56003
-(01 0130), kat. è. 512499
-pøevzata vyhlášením ve vìstníku
-Management inovací - Nástroje a metody pro
-inovativní obchodní partnerství - Návod
-Vydána: 2021-09
+M20.0x1.5
+d1 = 19.026mm
+d2 = 18.376mm
+d3 = 18.16mm
 
-ÈSN EN ISO 56005
-(01 0130), kat. è. 513907
-pøevzata vyhlášením ve vìstníku
-Management inovací - Nástroje a metody pro
-management intelektuálního vlastnictví - Návod
-Vydána: 2022-04
+M20.0x2
+d1 = 18.701mm
+d2 = 17.835mm
+d3 = 17.546mm
 
-ÈSN P CEN/TS 16555-2
-(01 0130), kat. è. 501046
-pøevzata vyhlášením ve vìstníku
-Management inovací - Èást 2: Management
-strategických informací
-Vydána: 2017-01
+M20.0x2.5
+d1 = 18.376mm
+d2 = 17.294mm
+d3 = 16.933mm
 
-ÈSN P CEN/TS 16555-3
-(01 0130), kat. è. 501047
-pøevzata vyhlášením ve vìstníku
-Management inovací - Èást 3: Inovativní myšlení
-Vydána: 2017-01
+Prùmìr díry: 5mm
+dmax =  4.6mm
+dmin =  4.4mm
+amax =  4mm
+amin =  2mm
+b =  10mm
+cmax =  9.2mm
+cmin =  8mm
 
-ÈSN P CEN/TS 16555-4
-(01 0130), kat. è. 501050
-pøevzata vyhlášením ve vìstníku
-Management inovací - Èást 4: Management
-intelektuálního vlastnictví
-Vydána: 2017-01
-
-ÈSN P CEN/TS 16555-6
-(01 0130), kat. è. 501041
-pøevzata vyhlášením ve vìstníku
-Management inovací - Èást 6: Management
-kreativity
-Vydána: 2017-01
-
-ÈSN P CEN/TS 16555-7
-(01 0130), kat. è. 501048
-pøevzata vyhlášením ve vìstníku
-Management inovací - Èást 7: Hodnocení
-managementu inovací
-Vydána: 2017-01
 

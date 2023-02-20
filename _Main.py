@@ -35,8 +35,9 @@ def cls():
 
 def export(ex):
     print("Main.py export")
-    with open("export.txt", "w") as f:
-        f.write(f"{ex}\n")
+    with open("export.txt", "a") as f:
+        f.write(f"{ex}\n\n")
+        f.close()
 
 
 def zavity():
