@@ -42,8 +42,6 @@ def d1_assigment(D, P):
     return round(d1, 3)
 
 
-
-
 def d2_assigment(D, P):
     d2 = D - P * 1.0825
     return round(d2, 3)
@@ -54,24 +52,9 @@ def d3_assigment(D, P):
     return round(d3, 3)
 
 
-class Zavit:
-    def __init__(self, D, P):
-        Zavit.name = f"M{D}"
-        Zavit.D = D
-        Zavit.P = P
-        Zavit.d1 = d1_assigment(D, P)
-        Zavit.d2 = d2_assigment(D, P)
-        Zavit.d3 = d3_assigment(D, P)
-
-
-def thread_create(D, P):
-    thread = Zavit(D, P)
-    name = [thread.name, thread.D, thread.P, thread.d1, thread.d2, thread.d3]
-    return name
 
 def thread_print(D, P):
-    thread = Zavit(D, P)
-    name = [thread.D, thread.P, thread.d1, thread.d2, thread.d3]
+    name = [D, P, d1_assigment(D, P), d2_assigment(D, P), d3_assigment(D, P)]
     return (f"M{D}x{P}\nd1 = {name[2]}mm\nd2 = {name[3]}mm\nd3 = {name[-1]}mm")
 
 
